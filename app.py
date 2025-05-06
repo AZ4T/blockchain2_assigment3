@@ -50,9 +50,6 @@ def main():
     load_dotenv(dotenv_path, override=True)
     api_key = os.getenv("OPENAI_API_KEY")
 
-    st.write("**dotenv path:**", dotenv_path or "Not found")
-    st.write("**Loaded key:**", repr(api_key))
-
     if not api_key:
         st.error(
             "❌ Missing `OPENAI_API_KEY`. Create a `.env` alongside this file with:\n\n"

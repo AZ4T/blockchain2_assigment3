@@ -1,98 +1,76 @@
-# 🚀 Solana Hello World Deployment
+# 🚀 Document QA + Chat Deployment
 
-This project demonstrates how to set up the Solana CLI and deploy a simple Rust-based smart contract (Hello World) to the Solana `devnet`.
+This project demonstrates how to set up and run a Streamlit-based Document QA & Chat application using LangChain, Chroma, and OpenAI.
 
 ---
 
 ## 📦 Usage
 
-### 1. Install Solana CLI
-
-Follow the official installation guide:  
-🔗 [https://solana.com/docs/cli/install-solana-cli-tools](https://solana.com/docs/cli/install-solana-cli-tools)
+### 1. Install dependencies
 
 ```bash
-sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
+pip install -r requirements.txt
 ```
 
-Check the CLI version:
+Your requirements.txt should include, at minimum:
 
 ```bash
-solana --version
+streamlit
+langchain-community
+chromadb
+openai
+python-dotenv
 ```
 
----
+## 2. Create .env
+OPENAI_API_KEY=YOUR_FULL_API_KEY
 
-### 2. Clone and Build the Hello World Program
-
+## 3. Run the App
 ```bash
-git clone https://github.com/solana-labs/example-helloworld.git
-cd example-helloworld
-cargo build
+streamlit run app.py
 ```
 
----
+Once the server starts, open your browser at the URL shown (usually http://localhost:8501).
 
-### 3. Configure Devnet
+## 4. Use the App
 
-```bash
-solana config set --url https://api.devnet.solana.com
-solana airdrop 2
-solana address  # Copy this wallet address
-```
+1. Upload one or more PDF, DOCX or TXT files via the uploader.
 
----
+2. Wait for the app to display messages like:
+- ✅ Loaded 10 pages from 1 file(s).
+- ✅ Split into 30 chunks.
 
-### 4. Deploy the Program
+3. When indexing completes, the chat input box will appear. Type your question and press Enter.
 
-```bash
-solana program deploy dist/program/helloworld.so
-```
-
-Copy your **Program ID** shown after deployment.
-
----
+4. The app will display an answer and list any source documents used.
 
 ## 🧾 Example Output
-
 ```bash
-Solana CLI Version: 1.18.x
-Wallet Address: HsG...Abc1
-Program ID: 5F...zU2X
+✅ Loaded 8 pages from 2 file(s).
+✅ Split into 24 chunks.
+🌱 Built vector store from your documents.
+
+User: What does Section 3 cover?
+Assistant: Section 3 outlines the rights and responsibilities of...
+Sources:
+- Constitution.pdf
 ```
 
----
+🖼️ Demo Screenshot
+### Main page
+![main](screenshots/main.png)
 
-## 🖼️ Demo Screenshot
-
-### Screenshot of Solana CLI
-![cli](screenshots/cli.png)
-
-### Screenshot of Wallet Address
-![address](screenshots/address.png)
-
-### Screenshot of Deploy
-![deploy](screenshots/deploy.png)
-
----
+### Result
+![result](screenshots/result.png)
 
 ## 📁 Project Structure
 
 ```
-📦example-helloworld/
- ┣ 📂src/
- ┣ 📂dist/
+📦Assignment3/
+ ┣ 📂screenshots/
+ ┣ 📂uploads/
  ┣ 📜README.md
- ┣ 📜Cargo.toml
- ┣ 📜package.json
+ ┣ 📜app.py
+ ┣ 📜requirements.txt
  ┗ 📜LICENSE
 ```
-
----
-
-## 📜 LICENSE
-
-License inherited from Solana’s official Hello World repo:  
-🔗 https://github.com/solana-labs/example-helloworld/blob/master/LICENSE
-
----
