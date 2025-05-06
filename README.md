@@ -70,9 +70,11 @@ Sources:
 ```
 📦Assignment3/
  ┣ 📂screenshots/
- ┣ 📂uploads/
  ┣ 📜README.md
  ┣ 📜app.py
+ ┣ 📜file_utils.py
+ ┣ 📜llm_client.py
+ ┣ 📜vector_store.py
  ┣ 📜requirements.txt
  ┗ 📜LICENSE
 ```
