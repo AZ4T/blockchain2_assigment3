@@ -1,0 +1,35 @@
+# 1) Python bytecode & caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 2) Virtual environments
+.venv/
+venv/
+env/
+
+# 3) Secret files
+.env
+*.secret
+*.key
+
+# 4) ChromaDB persistence (your vector store)
+chroma_db/
+# or whatever `persist_directory` you chose
+
+# 5) Streamlit-specific
+.streamlit/
+
+# 6) IDE / OS cruft
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 7) Logs
+*.log
+
+# 8) Build / packaging artifacts
+dist/
+build/
+*.egg-info/
