@@ -23,7 +23,9 @@ python-dotenv
 ```
 
 ## 2. Create .env
+```
 OPENAI_API_KEY=YOUR_FULL_API_KEY
+```
 
 ## 3. Run the App
 ```bash
@@ -56,7 +58,7 @@ Sources:
 - Constitution.pdf
 ```
 
-🖼️ Demo Screenshot
+## 🖼️ Demo Screenshot
 ### Main page
 ![main](screenshots/main.png)
 
